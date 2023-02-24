@@ -1,8 +1,9 @@
 package bank;
 
+import javax.swing.*;
 import java.util.*;
 
-public class Account {
+public class Account  {
 
     String firstName;
 
@@ -12,37 +13,78 @@ public class Account {
     String Password;
     Double balance;
     int accountNumber;
+    String email;
 
-    Stack <String> transactionLog;
+    Stack <JLabel> transactionLog;
 
-    public static Set <Account> accounts;
+    public JPanel userPanel;
 
-    public static HashMap<String, Account> userAndAcc;
+    public static Set <Account> accounts = new HashSet<>();
+
+    public static HashMap<String, Account> userAndAcc = new HashMap<>();
 
 
     public Account()
     {
         accounts = new HashSet<>();
-        userAndAcc = new HashMap<>();
+        userPanel = new JPanel();
+        transactionLog = new Stack<>();
+    }
+
+    public Account(String userName, String password, String firstName, String lastName, String address, String email, Stack<JLabel> transactionLog)
+    {
+
+        this.UserName = userName;
+        this.Password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.Address = address;
+        this.balance = 0.00;
+        this.transactionLog = transactionLog;
+
+        userPanel = new JPanel();
+
+        Random rand = new Random();
+        this.accountNumber = rand.nextInt(10000000) + 100000000;
     }
 
     public Account(String userName, String password)
     {
+
+        this.UserName = userName;
+        this.Password = password;
+
         firstName = new String();
         lastName = new String();
         Address = new String();
-        this.UserName = userName;
-        this.Password = password;
+
         transactionLog = new Stack<>();
-        userAndAcc = new HashMap<>();
-
+        userPanel = new JPanel();
 
     }
 
-    public void addAccountToDataBase(Account newAcc)
+    public void withdraw(double withdrawlAmount)
     {
-        accounts.add(newAcc);
+        this.balance -= withdrawlAmount;
     }
+
+    public void deposit(double depositAmount)
+    {
+        this.balance += depositAmount;
+    }
+
+    public void addTransaction(JLabel transactionType)
+    {
+        this.transactionLog.push(transactionType);
+    }
+
+
+    public JPanel getUserPanel()
+    {
+        return userPanel;
+    }
+
+
 
 
 

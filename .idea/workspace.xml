@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a0bde84-6cf4-4b3b-9102-c0798829f9e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankUI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bank/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bank/SigninPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bank/SignupPage.java" afterDir="false" />
+    <list default="true" id="6a0bde84-6cf4-4b3b-9102-c0798829f9e5" name="Changes" comment="I best">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bank/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bank/SigninPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/SigninPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bank/SignupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/SignupPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +47,14 @@
       <option name="presentableId" value="Default" />
       <updated>1675289684535</updated>
     </task>
+    <task id="LOCAL-00001" summary="I best">
+      <created>1675571389406</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675571389406</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -65,5 +67,50 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="I best" />
+    <option name="LAST_COMMIT_MESSAGE" value="I best" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SignupPage.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SignedIn.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SigninPage.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SigninPage.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SignedIn.java</url>
+          <line>264</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/SignedIn.java</url>
+          <line>422</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="userName" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Stack;
 
 
-public class SigninPage extends Account implements ActionListener {
+public class SigninPage extends Account {
 
     public static JTextField userNameField;
     public static JTextField passwordField;
@@ -34,6 +34,9 @@ public class SigninPage extends Account implements ActionListener {
 
 
     public static CardLayout cardLayout = new CardLayout();
+
+    public static String userSignin;
+    public static String passSignin;
 
     public static void panelLayout()
     {
@@ -63,15 +66,47 @@ public class SigninPage extends Account implements ActionListener {
         passwordField.setBounds(400, 50, 165, 25);
 
 
+        //Signin Button
         signIn = new JButton("Sign In");
         signIn.setBounds(430,100, 100,20);
-        signIn.addActionListener(new SigninPage());
+        signIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.repaint();
+                panel.remove(SignupPage.accountCreatedLabel);
+                userSignin = userNameField.getText();
+                passSignin = passwordField.getText();
+                JLabel incorrectPasswordUsername = new JLabel(" Incorrect Username and or Password");
+                incorrectPasswordUsername.setBounds(375, 150, 700, 25);
+
+                if(userAndAcc.containsKey(userSignin))
+                {
+                    String correctPassword = userAndAcc.get(userSignin).Password;
+
+                    if(passSignin.equals(correctPassword))
+                    {
+                        panelContainer.add(Account.userAndAcc.get(userSignin).getUserPanel(),"4");
+                        SignedIn.panel4();
+                        cardLayout.show(panelContainer, "4");
+                    }
+
+                    else {
+                        panel.repaint();
+                        panel.add(incorrectPasswordUsername);
+                    }
+                }
+
+                else {
+                    panel.repaint();
+                    panel.add(incorrectPasswordUsername);
+                }
+            }
+        });
 
     }
-
     public static void frameAndContainer()
     {
-        frame.setSize(1000,1000);
+        frame.setSize(1100,1000);
         frame.add(panelContainer);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -81,8 +116,10 @@ public class SigninPage extends Account implements ActionListener {
         panelContainer.add(panel, "1");
         panelContainer.add(panel2, "2");
         panelContainer.add(panel3, "3");
-        panelContainer.add(SignedIn.panel4,"4");
         panelContainer.add(panel5, "5");
+        panelContainer.add(SignedIn.withdrawPanel, "withdraw");
+        panelContainer.add(SignedIn.depositPanel, "deposit");
+        panelContainer.add(SignedIn.sendTransferPanel, "send");
     }
 
     public static void panel1()
@@ -90,15 +127,18 @@ public class SigninPage extends Account implements ActionListener {
         panelLayout();
         frameAndContainer();
 
-        panel.add(userNameLabel);
-        panel.add(userNameField);
-        panel.add(passWordLabel);
-        panel.add(passwordField);
-        panel.add(signIn);
+            panel.add(userNameLabel);
+            panel.add(userNameField);
+            panel.add(passWordLabel);
+            panel.add(passwordField);
+            panel.add(signIn);
 
+            //Signup Button
         signupPage = new JButton("Sign Up");
         signupPage.setBounds(430,125,100,20);
+        panel.add(signupPage);
         signupPage.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -111,61 +151,22 @@ public class SigninPage extends Account implements ActionListener {
         //cardLayout.show(panelContainer,"1");
     }
 
-    public static void panel3()
-    {
-        panel3.add(userNameLabel);
-        panel3.add(userNameField);
-        panel3.add(passWordLabel);
-        panel3.add(passwordField);
-        panel3.add(signIn);
-
-        panel3.setLayout(null);
-
-        signupPage = new JButton("Sign Up");
-        signupPage.setBounds(430,125,100,20);
-        signupPage.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SignupPage.panel2();
-                cardLayout.show(panelContainer, "2");
-            }
-        });
-        panel.add(signupPage);
-
-        JLabel incorrectLogin = new JLabel("Incorrect Username and or Password");
-        incorrectLogin.setBounds(380, 20, 300,300 );
-
-        panel3.add(incorrectLogin);
-        panel3.add(signupPage);
-
-    }
 
     public static void main(String [] args)
     {
+        Stack<JLabel> tranLog = new Stack<>();
+        Account acc1 = new Account("m", "c","Montrell", "Campbell", "302 N School St", "mcamp10@ilstu.edu", tranLog);
+        userAndAcc.put(acc1.UserName, acc1);
+        acc1.balance += 500;
+
+        Stack<JLabel> tranLog1 = new Stack<>();
+        Account acc2 = new Account("b", "c","brandon", "Cunningham", "louisiana", "brandon@gmail.com", tranLog1);
+        userAndAcc.put("b", acc2);
+        acc2.balance += 500;
+
+
         panel1();
 
-
-
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        String user = userNameField.getText();
-        String pass = passwordField.getText();
-
-        if(userAndAcc.containsKey(user))
-        {
-            if(userAndAcc.get(user).Password.equals(pass))
-            {
-                SignedIn.panel4();
-                cardLayout.show(panelContainer, "4");
-            }
-        }else
-        {
-            panel3();
-            cardLayout.show(panelContainer, "3");
-        }
     }
 
 }
